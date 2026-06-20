@@ -12,7 +12,9 @@ if (!connectionString) {
   );
 }
 
-export const pool = new Pool({ connectionString, ssl: process.env.SUPABASE_DB_URL ? { rejectUnauthorized: false } : undefined });
+const sslConfig = process.env.SUPABASE_DB_URL ? { rejectUnauthorized: false } : undefined;
+
+export const pool = new Pool({ connectionString, ssl: sslConfig });
 export const db = drizzle(pool, { schema });
 
 export * from "./schema";
