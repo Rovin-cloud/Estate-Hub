@@ -43,7 +43,7 @@ export default function Customers() {
   });
 
   const onSubmit = (data: z.infer<typeof customerSchema>) => {
-    createCustomer.mutate({ data }, {
+    createCustomer.mutate({ data: { ...data, email: data.email ?? "" } }, {
       onSuccess: () => {
         queryClient.invalidateQueries({ queryKey: getGetCustomersQueryKey() });
         setIsCreateOpen(false);

@@ -1,0 +1,1 @@
+- [Supabase DB env var guard](supabase-db-guard.md) — SUPABASE_DB_URL must be validated as a postgresql:// URL before use; a stale JWT secret with same name causes ENOTFOUND base

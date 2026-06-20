@@ -8,6 +8,7 @@ import { queryClient } from "./lib/queryClient";
 import { Layout } from "./components/layout";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { useRole } from "@/hooks/useRole";
 import NotFound from "@/pages/not-found";
 
 import Dashboard from "./pages/dashboard";
@@ -17,6 +18,15 @@ import Customers from "./pages/customers";
 import Properties from "./pages/properties";
 import Tasks from "./pages/tasks";
 import Pipeline from "./pages/pipeline";
+import Payments from "./pages/payments";
+
+import AdminUsers from "./pages/admin/users";
+import AssignLeads from "./pages/admin/assign-leads";
+import SalesDashboard from "./pages/sales/dashboard";
+import SalesLeads from "./pages/sales/leads";
+import ClientDashboard from "./pages/client/dashboard";
+import ClientPayments from "./pages/client/payments";
+import ClientProperties from "./pages/client/properties";
 
 const clerkPubKey = publishableKeyFromHost(
   window.location.hostname,
@@ -85,20 +95,22 @@ const clerkAppearance = {
   },
 };
 
-function HomeRedirect() {
+function RoleBasedHome() {
+  const role = useRole();
   return (
     <>
+      <Show when="signed-out"><Redirect to="/sign-in" /></Show>
       <Show when="signed-in">
-        <Redirect to="/dashboard" />
-      </Show>
-      <Show when="signed-out">
-        <Redirect to="/sign-in" />
+        {role === "client" ? <Redirect to="/client/dashboard" /> :
+         role === "sales_executive" ? <Redirect to="/sales/dashboard" /> :
+         <Redirect to="/dashboard" />}
       </Show>
     </>
   );
 }
 
-function ProtectedRoute({ component: Component }: { component: any }) {
+function ProtectedRoute({ component: Component, roles }: { component: React.ComponentType; roles?: string[] }) {
+  const role = useRole();
   return (
     <>
       <Show when="signed-in">
@@ -144,10 +156,11 @@ function ClerkProviderWithRoutes() {
     >
       <QueryClientProvider client={queryClient}>
         <Switch>
-          <Route path="/" component={HomeRedirect} />
+          <Route path="/" component={RoleBasedHome} />
           <Route path="/sign-in/*?" component={SignInPage} />
           <Route path="/sign-up/*?" component={SignUpPage} />
-          
+
+          {/* Main CRM */}
           <Route path="/dashboard"><ProtectedRoute component={Dashboard} /></Route>
           <Route path="/leads"><ProtectedRoute component={Leads} /></Route>
           <Route path="/leads/:id"><ProtectedRoute component={LeadDetail} /></Route>
@@ -155,6 +168,20 @@ function ClerkProviderWithRoutes() {
           <Route path="/properties"><ProtectedRoute component={Properties} /></Route>
           <Route path="/tasks"><ProtectedRoute component={Tasks} /></Route>
           <Route path="/pipeline"><ProtectedRoute component={Pipeline} /></Route>
+          <Route path="/payments"><ProtectedRoute component={Payments} /></Route>
+
+          {/* Admin */}
+          <Route path="/admin/users"><ProtectedRoute component={AdminUsers} /></Route>
+          <Route path="/admin/assign-leads"><ProtectedRoute component={AssignLeads} /></Route>
+
+          {/* Sales */}
+          <Route path="/sales/dashboard"><ProtectedRoute component={SalesDashboard} /></Route>
+          <Route path="/sales/leads"><ProtectedRoute component={SalesLeads} /></Route>
+
+          {/* Client Portal */}
+          <Route path="/client/dashboard"><ProtectedRoute component={ClientDashboard} /></Route>
+          <Route path="/client/payments"><ProtectedRoute component={ClientPayments} /></Route>
+          <Route path="/client/properties"><ProtectedRoute component={ClientProperties} /></Route>
 
           <Route component={NotFound} />
         </Switch>

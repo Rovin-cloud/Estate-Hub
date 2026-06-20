@@ -4,7 +4,9 @@ import * as schema from "./schema";
 
 const { Pool } = pg;
 
-const connectionString = process.env.SUPABASE_DB_URL || process.env.DATABASE_URL;
+const supabaseUrl = process.env.SUPABASE_DB_URL;
+const isValidSupabaseUrl = supabaseUrl?.startsWith("postgresql://") || supabaseUrl?.startsWith("postgres://");
+const connectionString = (isValidSupabaseUrl ? supabaseUrl : undefined) || process.env.DATABASE_URL;
 
 if (!connectionString) {
   throw new Error(
@@ -12,7 +14,7 @@ if (!connectionString) {
   );
 }
 
-const sslConfig = process.env.SUPABASE_DB_URL ? { rejectUnauthorized: false } : undefined;
+const sslConfig = isValidSupabaseUrl ? { rejectUnauthorized: false } : undefined;
 
 export const pool = new Pool({ connectionString, ssl: sslConfig });
 export const db = drizzle(pool, { schema });
