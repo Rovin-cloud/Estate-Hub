@@ -1,0 +1,143 @@
+Build a full-stack Real Estate CRM SaaS MVP using Next.js (App Router).
+
+You are a Senior Full Stack SaaS Developer.
+
+PROJECT:
+Real Estate CRM System for Bangladesh
+
+GOAL:
+Build a working CRM where real estate companies can manage leads, customers, properties, tasks, and sales pipeline.
+
+---
+
+IMPORTANT RULE (VERY STRICT):
+
+Use ONLY these environment variables for Supabase:
+
+NEXT_PUBLIC_SUPABASE_URL
+NEXT_PUBLIC_SUPABASE_ANON_KEY
+
+Do NOT use any other env naming like VITE_ or SERVER keys.
+
+---
+
+ENV SETUP:
+
+Create a .env.example file:
+
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+
+Ensure the app reads these variables correctly in Next.js.
+
+Supabase client setup must be:
+
+import { createClient } from '@supabase/supabase-js'
+
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+)
+
+---
+
+CORE FEATURES:
+
+1. AUTH SYSTEM
+- Supabase email/password authentication
+- Protected routes
+- Role-based access:
+  Admin, Sales Manager, Sales Executive
+
+---
+
+2. DASHBOARD
+- Total Leads
+- New Leads
+- Hot Leads
+- Site Visits
+- Bookings
+- Sales Overview cards
+
+---
+
+3. LEAD MANAGEMENT
+Fields:
+- Name
+- Phone Number
+- Source (Facebook / Website / WhatsApp / Walk-in)
+- Status (New, Contacted, Interested, Site Visit, Negotiation, Booking, Sold)
+- Assigned To
+- Follow-up Date
+- Notes
+
+CRUD:
+- Add Lead
+- Edit Lead
+- Delete Lead
+- Search & Filter
+
+---
+
+4. CUSTOMER MODULE
+- Customer Profile
+- Contact Info
+- Activity History
+
+---
+
+5. PROPERTY MODULE
+- Project Name
+- Location
+- Unit Number
+- Price
+- Availability Status
+
+---
+
+6. SALES PIPELINE
+New → Contacted → Interested → Site Visit → Negotiation → Booking → Sold
+
+---
+
+7. TASK MANAGEMENT
+- Task Title
+- Linked Lead
+- Due Date
+- Status
+
+---
+
+DATABASE (SUPABASE TABLES):
+
+- leads
+- customers
+- properties
+- tasks
+- users (if needed)
+
+---
+
+UI REQUIREMENTS:
+- Clean SaaS dashboard design
+- Responsive layout
+- Sidebar navigation:
+  Dashboard, Leads, Customers, Properties, Tasks, Settings
+
+---
+
+WORKFLOW:
+1. Create project structure
+2. Setup Supabase connection using ONLY NEXT_PUBLIC env variables
+3. Setup authentication
+4. Build dashboard UI
+5. Build Leads module (CRUD)
+6. Build remaining modules step by step
+
+---
+
+IMPORTANT:
+- Keep MVP simple and functional
+- Do not over-engineer
+- Ensure Supabase connection works correctly
+- Ensure all pages are working and connected
