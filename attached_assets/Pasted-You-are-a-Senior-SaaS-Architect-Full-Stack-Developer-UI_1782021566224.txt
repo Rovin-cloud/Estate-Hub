@@ -1,0 +1,220 @@
+You are a Senior SaaS Architect, Full Stack Developer, UI/UX Designer and Real Estate CRM Expert.
+
+I have already built an MVP version of a Real Estate CRM called "Estate Hub".
+
+Your task is to analyze the existing application and upgrade it into a production-ready Real Estate ERP + CRM + Automation Platform for Bangladesh.
+
+Before making any changes:
+
+1. Analyze the complete codebase.
+2. Identify missing features.
+3. Find security issues.
+4. Find database optimization opportunities.
+5. Find UI/UX improvements.
+6. Create a detailed implementation plan.
+7. Then start implementing.
+
+====================================
+CORE OBJECTIVE
+====================================
+
+Transform Estate Hub into a Multi-Tenant SaaS Platform where multiple real estate companies can use the system independently.
+
+====================================
+USER MANAGEMENT
+====================================
+
+Implement Role-Based Access Control (RBAC)
+
+Roles:
+
+- Super Admin
+- Company Admin
+- Sales Manager
+- Sales Executive
+- Customer
+
+Permissions must be configurable.
+
+Each company must have:
+
+- Unique Login Portal
+- Company Profile
+- Team Management
+- User Management
+
+====================================
+CUSTOMER PORTAL
+====================================
+
+Create a Customer Dashboard where customers can:
+
+- View purchased property
+- View booking status
+- Download documents
+- View payment history
+- View installment schedule
+- Submit support requests
+
+====================================
+PROPERTY MANAGEMENT
+====================================
+
+Property Module:
+
+- Project Management
+- Block Management
+- Plot Management
+- Flat Management
+
+Property Status:
+
+- Available
+- Reserved
+- Booked
+- Sold
+
+Include property images and documents.
+
+====================================
+LEAD MANAGEMENT
+====================================
+
+Lead Sources:
+
+- Facebook
+- Website
+- WhatsApp
+- Referral
+- Walk-In
+
+Features:
+
+- Lead Assignment
+- Lead Scoring
+- Follow-up Tracking
+- Reminder System
+- Pipeline View
+- Conversion Analytics
+
+====================================
+PAYMENT MANAGEMENT
+====================================
+
+Build complete installment management:
+
+- Booking Money
+- Down Payment
+- Monthly Installments
+- Due Tracking
+- Auto Balance Calculation
+- Money Receipt Generation
+
+Generate PDF invoices.
+
+====================================
+DOCUMENT MANAGEMENT
+====================================
+
+Upload and manage:
+
+- NID
+- Passport
+- Agreement
+- Deed
+- Money Receipts
+
+Create secure file storage.
+
+====================================
+WHATSAPP AUTOMATION
+====================================
+
+Prepare integration architecture for:
+
+- WhatsApp Business API
+- Meta Lead Forms
+- Facebook Ads
+
+Automation:
+
+- New Lead Notification
+- Follow-up Reminder
+- Booking Confirmation
+- Payment Reminder
+
+====================================
+REPORTS & ANALYTICS
+====================================
+
+Dashboard Metrics:
+
+- Total Leads
+- Active Leads
+- Sales Conversion Rate
+- Monthly Revenue
+- Due Payments
+- Sales Performance
+
+Generate exportable reports.
+
+====================================
+SECURITY
+====================================
+
+Implement:
+
+- JWT Authentication
+- Secure Password Hashing
+- Rate Limiting
+- Audit Logs
+- Activity Tracking
+- Password Reset
+- Two-Factor Authentication Ready
+
+====================================
+UI/UX
+====================================
+
+Design a modern dashboard similar to:
+
+- HubSpot CRM
+- Zoho CRM
+- Salesforce
+
+Requirements:
+
+- Mobile Responsive
+- Dark Mode
+- Clean Design
+- Fast Loading
+
+====================================
+DATABASE
+====================================
+
+Optimize database structure.
+
+Create:
+
+- ER Diagram
+- Relationships
+- Multi-Tenant Architecture
+
+====================================
+FINAL OUTPUT
+====================================
+
+Provide:
+
+1. System Architecture
+2. Database Schema
+3. Feature Roadmap
+4. Missing Features Report
+5. Security Report
+6. UI/UX Improvement Report
+7. Complete Implementation Plan
+
+Then implement the upgrades step-by-step without breaking existing functionality.
+
+Maintain clean code, scalability, security, and SaaS readiness throughout the project.
