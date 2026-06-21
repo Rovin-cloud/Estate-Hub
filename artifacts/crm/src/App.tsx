@@ -27,6 +27,8 @@ import SalesLeads from "./pages/sales/leads";
 import ClientDashboard from "./pages/client/dashboard";
 import ClientPayments from "./pages/client/payments";
 import ClientProperties from "./pages/client/properties";
+import SuperCompanies from "./pages/super/companies";
+import CompanySettings from "./pages/company/settings";
 
 const clerkPubKey = publishableKeyFromHost(
   window.location.hostname,
@@ -103,6 +105,7 @@ function RoleBasedHome() {
       <Show when="signed-in">
         {role === "client" ? <Redirect to="/client/dashboard" /> :
          role === "sales_executive" ? <Redirect to="/sales/dashboard" /> :
+         role === "super_admin" ? <Redirect to="/super/companies" /> :
          <Redirect to="/dashboard" />}
       </Show>
     </>
@@ -173,6 +176,12 @@ function ClerkProviderWithRoutes() {
           {/* Admin */}
           <Route path="/admin/users"><ProtectedRoute component={AdminUsers} /></Route>
           <Route path="/admin/assign-leads"><ProtectedRoute component={AssignLeads} /></Route>
+
+          {/* Super Admin */}
+          <Route path="/super/companies"><ProtectedRoute component={SuperCompanies} /></Route>
+
+          {/* Company Admin */}
+          <Route path="/company/settings"><ProtectedRoute component={CompanySettings} /></Route>
 
           {/* Sales */}
           <Route path="/sales/dashboard"><ProtectedRoute component={SalesDashboard} /></Route>

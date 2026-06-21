@@ -1,1 +1,4 @@
 - [Supabase DB env var guard](supabase-db-guard.md) — SUPABASE_DB_URL must be validated as a postgresql:// URL before use; a stale JWT secret with same name causes ENOTFOUND base
+- [Multi-tenancy architecture](multi-tenancy.md) — company_id on all tables, Clerk publicMetadata carries role+company_id, requireTenant middleware enforces isolation
+- [Postgres migration quirks](postgres-migration-quirks.md) — ADD CONSTRAINT IF NOT EXISTS not supported; drizzle-kit push hangs; use executeSql() code_execution tool for all schema changes
+- [Role hierarchy](role-hierarchy.md) — six roles with specific sidebar sections and access scopes
