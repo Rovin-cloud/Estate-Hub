@@ -1,0 +1,156 @@
+You are a Senior Full Stack Developer.
+
+I already have a working Real Estate CRM SaaS application built with Next.js + Supabase.
+
+Now I want to UPGRADE the existing system with new modules.
+
+DO NOT rebuild the project.
+ONLY add new features and extend the current system.
+
+---
+
+🎯 NEW FEATURES TO ADD:
+
+---
+
+1. CLIENT LOGIN + CLIENT PORTAL
+
+Create a secure client dashboard where each client can:
+
+- Login with email/password
+- See only their own data
+- View purchased property (plot / flat / share)
+- View total payment, paid amount, due amount
+- View installment schedule
+- View next due date
+
+IMPORTANT:
+- Data must be fully isolated per client (no data leakage)
+
+---
+
+2. SALES TEAM USER SYSTEM (3 MEMBERS)
+
+Create user roles:
+
+- Admin
+- Sales Manager
+- Sales Executive
+
+Sales Executive can:
+- See only assigned leads
+- Update lead status
+- Add follow-up notes
+
+Sales Manager can:
+- View all leads
+- Assign leads to sales team
+- Monitor performance
+
+Admin can:
+- Full access
+- Create users
+- Assign roles
+- Manage everything
+
+---
+
+3. LEAD ASSIGNMENT SYSTEM
+
+Add ability for Admin to:
+
+- Assign leads to specific salespersons
+- Track which leads are assigned to whom
+
+Salesperson dashboard must show:
+- My assigned leads only
+- Follow-up list
+- Site visit list
+- Converted leads
+
+---
+
+4. PAYMENT & INSTALLMENT TRACKING SYSTEM
+
+Create payment module:
+
+Fields:
+- Customer
+- Property (plot/flat/share)
+- Total Amount
+- Paid Amount
+- Remaining Amount
+- Installment Number
+- Due Date
+- Payment Status
+
+Client portal must show:
+- Payment history
+- Installment schedule
+- Due payments
+
+---
+
+5. DATABASE EXTENSION (SUPABASE)
+
+Extend existing tables or create new ones:
+
+- users (role-based)
+- leads (add assigned_to field)
+- customers (link with auth user)
+- properties (plot/flat/share)
+- payments (installments)
+- assignments (lead tracking)
+
+Ensure proper relations between tables.
+
+---
+
+6. ROLE-BASED ACCESS CONTROL (RBAC)
+
+Implement strict access rules:
+
+- Admin → full access
+- Sales → assigned leads only
+- Client → only own data
+
+Ensure data security using Supabase policies if needed.
+
+---
+
+7. NEW PAGES TO ADD
+
+Add these pages:
+
+/admin/users
+/admin/assign-leads
+/sales/dashboard
+/sales/leads
+/client/dashboard
+/client/payments
+/client/properties
+
+---
+
+8. UI REQUIREMENTS
+
+- Keep existing UI style consistent
+- Add modern SaaS dashboard components
+- Sidebar navigation for new modules
+- Fully responsive design
+
+---
+
+⚠️ IMPORTANT RULES:
+
+- Do NOT rebuild the project
+- Only extend existing codebase
+- Do NOT break current functionality
+- Keep code simple and scalable
+- Ensure Supabase integration works correctly
+- Ensure client data isolation is strictly enforced
+
+---
+
+GOAL:
+Turn this CRM into a full Real Estate ERP + Client Portal SaaS system.
