@@ -10,6 +10,8 @@ import {
 } from "./middlewares/clerkProxyMiddleware";
 import router from "./routes";
 import { logger } from "./lib/logger";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const app: Express = express();
 
@@ -49,5 +51,15 @@ app.use(
 );
 
 app.use("/api", router);
+
+// In production, serve the built React frontend and handle SPA routing
+if (process.env.NODE_ENV === "production") {
+  const __dirname = path.dirname(fileURLToPath(import.meta.url));
+  const publicDir = path.join(__dirname, "public");
+  app.use(express.static(publicDir));
+  app.get("*", (_req, res) => {
+    res.sendFile(path.join(publicDir, "index.html"));
+  });
+}
 
 export default app;

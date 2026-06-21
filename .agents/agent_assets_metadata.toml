@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "hERDTEqcKu9daxOU_zXRs"
+uri = "file://estate-hub-production.zip"
+type = "unspecified"
+title = "Estate Hub — Hostinger Production ZIP"
